@@ -1,13 +1,10 @@
 ---
 layout: post
-title: Redux: Learn How Redux Works by building one
+title: Learn How Redux Works by building one
 ---
 
 This tutorial is a hands-on creation of the popular state management library, __Redux__.
-
 We will build our own clone of Redux. If you must know, Redux is a state management library for JavaScript apps. It actually combines all our app states into a store.
-
-# Redux: Learn How Redux Works by building one
 
 # Introduction
 
