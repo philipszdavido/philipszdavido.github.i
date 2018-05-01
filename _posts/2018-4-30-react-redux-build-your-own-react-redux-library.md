@@ -5,6 +5,8 @@ title: Build your own React-Redux library
 
 **TL;DR:** This article is for experienced React devs who wants to know how `react-redux` works its nuts and bolts.
 
+# Introduction
+
 **TL;DR:** This article is for experienced React devs who wants to know how `react-redux` works its nuts and bolts.
 
 # How to Read this article
