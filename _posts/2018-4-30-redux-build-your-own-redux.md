@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Learn How Redux Works by building one
+excerpt: This tutorial is a hands-on creation of the popular state management library, __Redux__.
 ---
 
 # Introduction
