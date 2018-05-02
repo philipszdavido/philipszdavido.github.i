@@ -2,7 +2,7 @@
 layout: post
 title: Let's build a Reactive HTTP library for Angular
 excerpt: In this article we will go over the concept of Reactive Programming, and in the process build a reactive Angular HTTP module like Angular's own.
-post_url: https://cdn-images-1.medium.com/max/1600/1*BpaqVMW2RjQAg9cFHcX1pw.png
+post_url: https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/angular-logo.png
 ---
 
 
