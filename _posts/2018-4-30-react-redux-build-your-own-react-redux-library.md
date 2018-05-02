@@ -2,6 +2,7 @@
 layout: post
 title: Build your own React-Redux library
 excerpt: This article is for experienced React devs who wants to know how `react-redux` works its nuts and bolts.
+post_url: https://cdn-images-1.medium.com/max/1600/1*BpaqVMW2RjQAg9cFHcX1pw.png
 ---
 
 
