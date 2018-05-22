@@ -7,22 +7,22 @@ post_url: https://cdn-images-1.medium.com/max/1600/1*BpaqVMW2RjQAg9cFHcX1pw.png
 
 # Introduction
 
-This tutorial is a hands-on creation of the popular state management library, __Redux__.
+**TL;DR** This tutorial is a hands-on creation of the popular state management library, __Redux__.
 
 We will build our own clone of Redux. If you must know, Redux is a state management library for JavaScript apps. It actually combines all our app states into a store.
 
-`State management` has been one of the most important aspects in frontend-development. We may lose track of our app's state over time during development. It may result in wrong presentation of data.
+`State management` has been one of the most important aspects in frontend-development. We may lose track of our app's state over time during development. It may result in the wrong presentation of data.
 
-You see it's important that all the possible states of an application should originate from a single source - single source of truth. Thus, Redux was born, it encompasses the whole app's states in into a single store.
+You see it's important that all the possible states of an application should originate from a single source of truth. Thus, Redux was born, it encompasses the whole app's states in into a single store.
 
-There were other methods used to manage states before Redux, but the mechanics on how to manage and track state depended wholelly on the developer. It was a difficult task, there are many states in an app that will change depending on time, user behavior, or
-of different reasons, bugs and state leaks eventually emerges.
+There were other methods used to manage states before Redux, but the mechanics on how to manage and track state depended wholly on the developer. It was a difficult task, there are many states in an app that will change depending on time, user behavior, or
+for different reasons, bugs and state leaks eventually emerge.
 
-We are going to discuss the core concepts of Redux and also build a clone of the Redux library. We will build a `todoapp` powered by our Redux clone.
+We are going to discuss the core concepts of Redux and also build a clone of the Redux library. We will build a `Fruits app` powered by our Redux clone.
 
-To make things easier we are going to setup our project with an automated testing. Testing is one of the most important thing in software development. It is very crucial to have your code tested before you release.
+To make things easier we are going to set up our project with an automated testing. Testing is one of the most important things in software development. It is very crucial to have your code tested before you release.
 
-In the next sections, we will see how we will setup our project alongside the Facebook's testing framework, __Jest__.
+In the next sections, we will see how we will set up our project alongside the Facebook's testing framework, __Jest__.
 
 # Source Code
 
@@ -81,7 +81,7 @@ Redux can be used in any framework: `React.js`, `Angular`, `Vue.js` etc.
 
 ## Actions
 
-Actions tells the store how to affect the state. Actions are literally `dispatched` into the store.
+Actions tell the store how to affect the state. Actions are literally `dispatched` into the store.
 
 Actions are plain JavaScript objects used to send payloads of information to the store. Store use the payloads to update the state. It consists of keys: `type` and `payload`.
 
@@ -91,22 +91,22 @@ Actions are plain JavaScript objects used to send payloads of information to the
 ```js
 { type: " ", payload: [] || {} || String || Number || Boolean }
 ```
-This is an example of the Action object. Notice the `key`, and ` payload` properties. The payload property is optional and can be of any data type, if the action should carry any info, then the payload will hold this data.
+This is an example of the Action object. Notice the `key`, and ` payload` properties. The payload property is optional and can be of any data type if the action should carry any info, then the payload will hold this data.
 
 Actions are emitted in Redux using the `dispatch` function.
 
 ```js
 store.dispatch({ type: "ADD_BOOK", payload: { title: "Julius Caesar" } })
 ```
-`store.dispatch` takes in an action object as an arg, it calls the reducers in the store with the current state and the action object, `reducing process`, then, at last it calls all the listeners subscribed in the store, to update them with the new state.
+`store.dispatch` takes in an action object as an arg, it calls the reducers in the store with the current state and the action object, `reducing process`, then, at last, it calls all the listeners subscribed in the store, to update them with the new state.
 
 ## Reducers
 
 `Reducers` are pure functions used by `Redux` to alter the current state in the store and returns a new one.
 
-Reducers takes two args, `state` and `action`. The state arg is the current state in the store and the action arg is the JavaScript object containing a payload and type properties.
+Reducers take two args, `state` and `action`. The state arg is the current state in the store and the action arg is the JavaScript object containing a payload and type properties.
 
-Being, a pure function reducers only take its inputs and produces an output without affecting any external variables. Here, immutability is the watch word. States of the store can't be mutated, a new state must be returned. It is adviseable to use only non-mutating Object,Array methods in your reducer functions.
+Being, a pure function reducers only take its inputs and produces an output without affecting any external variables. Here, immutability is the watchword. States of the store can't be mutated, a new state must be returned. It is advisable to use only non-mutating Object, Array methods in your reducer functions.
 
 ###### Reducer example
 ```js
@@ -121,16 +121,16 @@ const (state = {}, action) => {
     }
 }
 ```
-This is a classic example of a simple reducer function. It take in the current state and action object, sent by the `dispath` method. Working down, we seethe use of the `switch-case`. With that we are able to execute the particular action pre-defined by the developer. You see why the action object is useful, it tells the reducer the kind of action to take and also supplies it with an optional information on how to affect the state.
+This is a classic example of a simple reducer function. It takes in the current state and action object, sent by the `dispatch` method. Working down, we see the use of the `switch-case`. With it, we are able to execute the particular action pre-defined by the developer. You see why the action object is useful, it tells the reducer the kind of action to take and also supplies it with an optional information on how to affect the state.
 
 
 # Project setup
 
-We will use Node.js runtime for our project development and testing. NPM, also will be used in pulling in our module dependencies.
+We will use Node.js runtime for our project development and testing. NPM also will be used in pulling in our module dependencies.
 
 __NB:__ NPM is an acronym for __N__ ode __P__ ackage __M__ anager.
 
-Before we proceed, let's make sure the Node.js runtime is installed in our machine:
+Before we proceed, let's make sure the Node.js runtime is installed on our machine:
 ```sh
 $ node -v
 v6.10.0
@@ -141,7 +141,7 @@ We can test for NPM, though it comes installed with Node.js:
 $ npm -v
 3.10.10
 ```
-The versions doen't matter, we just want to be sure they are all installed.
+The versions don't matter, we just want to be sure they are all installed.
 
 Next, we create our project directory:
 
@@ -154,9 +154,9 @@ Next, we initiate a Node.js project:
 ```sh
 npm init -y
 ```
-I generates a package.json. Package.json is used to give info to NPM that allows it to identify the folder as a Node.js project. It also, tells NPM which module(s) the project depend on.
+It generates a package.json. The package.json is used to give info to NPM that allows it to identify the folder as a Node.js project. It also, tells NPM which module(s) the project depends on.
 
-Wuth that our project directory will look like this:
+With that our project directory will look like this:
 
 ```
 +- redux
@@ -167,12 +167,12 @@ Wuth that our project directory will look like this:
 
 # Enable Unit Testing with Jest
 
-As stated earlier, a good software dev. process goes along with unit testing. Unit testing reduces the number of bugs released during deployment, making it very effective in software development. In unit testing, individual components of the project is tested, therefore, when any of the components are modified, your unit tests should not fail. Any failure indicates that some components depend on some components. 
+As stated earlier, a good software development process goes along with unit testing. Unit testing reduces the number of bugs released during deployment, making it very effective in software development. In unit testing, individual components of the project are tested, therefore, when any of the components are modified, your unit tests should not fail. Any failure indicates that some components depend on some components. 
 
 We will be using the `Jest` framework for unit testing.
-Jest is a JavaScript testing framework developed by Facebook, used to unit test JS/React apps. It works out of the box for both JS/React apps. One of its great feateures is snapshot testing, it captures snapshots of serialible values to simlpfy testing and to analyze how state changes over time.
+Jest is a JavaScript testing framework developed by Facebook, used to unit test JS/React apps. It works out of the box for both JS/React apps. One of its great features is snapshot testing, it captures snapshots of serializable values to simplify testing and to analyze how state changes over time.
 
-Jest expects to find our tests files in the test folder. That was the reason we created the test folder earlier. Although, it has been a norm in JS testing community to put all your test flles in test folder, we are going to stick to it.
+Jest expects to find our tests files in the test folder. That was the reason we created the test folder earlier. Although it has been a norm in JS testing community to put all your test files in the test folder, we are going to stick to it.
 
 To start with, we need to install jest:
 
@@ -195,7 +195,7 @@ We won't need jest to be bundled alongside our redux library, that's the reason 
 ...
 ```
 
-We made `Jest` easier to invoke by using an NPM run script. By saving the command into `package.json` we don’t have to remember what it was and can instead invoke a shorthand version:
+We made `Jest` easier to invoke by using an NPM run script. By saving the command into `package.json` we don't have to remember what it was and can instead invoke a shorthand version:
 
 ```sh
 npm run test
@@ -229,7 +229,7 @@ Ran all test suites related to changed files.
 ```
 We are actually going to use ES7/ES6/ES5 features, and with that Node.js was built on ES5 and Jest uses Node.js to run our tests, so it will throw errors whenever it encounters any ES6/7 code. To transpile our code, we are going to use `Babel`.
 
-Babel is a tool for converting cutting-edge JS/ES feateurs in old JS that old brower can understand. Babel itself doen't do everything it uses plugins/presets to support a perticular language features.
+Babel is a tool for converting cutting-edge JS/ES features in old JS that old browser can understand. Babel itself doesn't do everything it uses plugins/presets to support a particular language feature.
 
 Before using any presets or plugins, babel-core must be present:
 
@@ -277,9 +277,9 @@ We set the `target` to `node` with the `current` version. This is so because Jes
 
 Before that, we define the `loose` key and set it to true, this activates `loose` mode when transpiling. `loose` mode transpiles ES6/7/8 code to ES5.
 
-Babel and its configuartions and a library full of presets/plugins is a very huge topic dedicated to its own series of tutorials. We just explained here the configurations and presets we will be using in this project. You can visit [Babel website](https://babeljs.io) for more information on its configurations and presets/plugins.
+Babel and its configurations and a library full of presets/plugins is a very huge topic dedicated to its own series of tutorials. We just explained here the configurations and presets we will be using in this project. You can visit [Babel website](https://babeljs.io) for more information on its configurations and presets/plugins.
 
-Last thing, we don't want to continously run the `npm run test` NPM script to run our __tests__. We would need Jest to watch our test folder and rerun all tests whenever there is a file change (i.e when we add more tests or edit an existing test). Jest provides an option for that `--watch` or `--watchAll`.
+The last thing, we don't want to continuously run the `npm run test` NPM script to run our __tests__. We would need Jest to watch our test folder and rerun all tests whenever there is a file change (i.e when we add more tests or edit an existing test). Jest provides an option for that `--watch` or `--watchAll`.
 
 * __--watch:__ reruns only the changed file.
 * __--watchAll:__ reruns all files.
@@ -310,23 +310,23 @@ Time:        35.629s
 Ran all test suites related to changed files.
 
 Watch Usage
- › Press a to run all tests.
- › Press f to run only failed tests.
- › Press p to filter by a filename regex pattern.
- › Press t to filter by a test name regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
+ - Press a to run all tests.
+ - Press f to run only failed tests.
+ - Press p to filter by a filename regex pattern.
+ - Press t to filter by a test name regex pattern.
+ - Press q to quit watch mode.
+ - Press Enter to trigger a test run.
 ```
 
 All our tests are run and `jest` waits idly watching for file change. Also, notice the command doesn't exist, so if you want to make changes to your project, you have to open another terminal.
 
-In this section we have setup our unit tests that will aid us in the implementation of our very own Redux.
+In this section, we have set up the unit tests that will aid us in the implementation of our very own Redux.
 
-__NB:__ Throughout this article, I'll assume your test suite is continuosly running, so will not explicitly state when to run the tests.
+__NB:__ Throughout this article, I'll assume your test suite is continuously running, so will not explicitly state when to run the tests.
 
 # Implementing Redux APIs
 
-Redux has many functions that helps immensely in state management:
+Redux has many functions that help immensely in state management:
 
 * createStore
 * combineReducers
@@ -355,7 +355,7 @@ We will begin our implementation of Redux with `createStore`.
 1. __Object__: This object contains functions subcribe, getState, dispatch.
 
 
-We have seen what to expect, the args and returns. The function takes in a reducing function and an object, then returns an object containig functions. Let's make our very first test case to pass this behaviour.
+We have seen what to expect, the args and returns. The function takes in a reducing function and an object, then returns an object containing functions. Let's make our very first test case to pass this behavior.
 
 We start by creating `createStore.js` file in `src`:
 
@@ -466,13 +466,13 @@ return {
     dispatch
 }
 ```
-With these, our test cases passes. 
+With these, our test cases pass. 
 
 #### Implementing subscribers/listeners
 
 [RxJS](https://github.com/ReactiveX) made popular the notion of subscribers. Where a subscriber is notified of data change over time. Likewise in Redux, we can implement subscriber to subscribe to the store to be notified of any change to the store or when an action is dispatched. 
 
-In this case, listeners are regitsered using subscribe function and the listeners are notified/called when actions are `dispatch`ed. Let's add a test case to assert that listener(s) are called when actions are dispatched:
+In this case, listeners are registered using subscribe function and the listeners are notified/called when actions are `dispatch`ed. Let's add a test case to assert that listener(s) are called when actions are dispatched:
 
 ```js
 // test/createStore.spec.js
@@ -486,7 +486,7 @@ describe('', () => {
     })
 })
 ```
-There are a few things we need to do to make this test case pass. First of all, the `createStore` needs to have some place to store all the listeners that have been registered. Let’s add an array for them:
+There are a few things we need to do to make this test case pass. First of all, the `createStore` needs to have some place to store all the listeners that have been registered. Let's add an array for them:
 
 ```js
 // src/createStore.js
@@ -498,7 +498,7 @@ export function createStore(reducer, preLoadedState) {
 ...
 }
 ```
-Now we can define the subscribe function. It’ll take the one function as argument, and store it in the listeners array:
+Now we can define the subscribe function. It'll take the one function as argument, and store it in the listeners array:
 
 ```js
 // src/createStore.js
@@ -512,7 +512,7 @@ Now we can define the subscribe function. It’ll take the one function as argumen
     }
 ...
 ```
-Finally there is the dispatch function. For now, let's define a very simple version of it, which just iterates over all registered listeners and calls their listener functions:
+Finally, there is the dispatch function. For now, let's define a very simple version of it, which just iterates over all registered listeners and calls their listener functions:
 
 ```js
 // src/createStore.js
@@ -529,9 +529,9 @@ The test passes but this versions of `subscribe` and `dispatch` isn't very usefu
 
 #### Unsubscribing listeners
 
-Whenever we subcribe to receive updates, we need to have a way from unsubscribing so as to no longer receive updates or to prevent memory leak.
+Whenever we subscribe to receive updates, we need to have a way from unsubscribing so as to no longer receive updates or to prevent a memory leak.
 
-We will make the subscribe function to return a function closure, which when invoked will unsubscribe the listener from the listeners array. 
+We will make the subscribe function to return a function closure, which when invoked will unsubscribe the listener from the listener's array. 
 
 Let's create a test case that checks our sunscribe function returns a function:
 
@@ -591,9 +591,9 @@ We used `jest.fn()` to create two listeners, `listenerA` and `listenerB`. Then, 
 
 `unsubscribeA` when called, removes listenerA from the listeners array and `unsubscribeB` also removes listenerB from the listeners array.
 
-Next we ran dispatch function, which will make listenerA and listenerB to be called. Then, we unsubscribes listenerA and `dispatch`ed an action. Here, only listenerB calls should be `2` because listenerA has been unsubscribed from the store.
+Next, we ran dispatch function, which will make listenerA and listenerB to be called. Then, we unsubscribes listenerA and `dispatch`ed an action. Here, only listenerB calls should be `2` because listenerA has been unsubscribed from the store.
 
-To make this work, we have to make the unsubscibe function remove the listener from the listeners array since we can reference the listener through closure.
+To make this work, we have to make the unsubscribe function remove the listener from the listeners array since we can reference the listener through closure.
 
 Here is the new re-definition of `subscribe`:
 
@@ -622,7 +622,7 @@ Here is the new re-definition of `subscribe`:
     }
 ...
 ```
-Here, we were able to still reference the exact listener because of the use of closure. With the listener reference all we did to remove it from the array was just to get the index in the array and `splice` out the index using `Array`'s `splice` method.
+Here, we were able to still reference the exact listener because of the use of closure. With the listener reference, all we did to remove it from the array was just to get the index in the array and `splice` out the index using `Array`'s `splice` method.
 
 #### Checking for non-function argument in subscribe
 
@@ -657,7 +657,7 @@ All we need to make this test pass is to check the listener arg is of `type` fun
 
 #### Checking for non-object argument in dispatch
 
-subscribe must take a function, dispatch must take an object. Actions disptached to the store are objects with property `type` which tells the store which action to take and an optional payload which holds tha value on how the state should be effected.
+subscribe must take a function, dispatch must take an object. Actions dispatched to the store are objects with property `type` which tells the store which action to take and an optional payload which holds the value on how the state should be affected.
 
 Let's add a test case that asserts that an object argument is to be dispatched:
 
@@ -737,7 +737,7 @@ It will return an undefined state. But, the current state of an app should be al
 
 ```sh
  FAIL  test\createStore.spec.js (7.998s)
-  ? getState › should return the current state
+  ? getState > should return the current state
 
     expect(received).toBeDefined()
 
@@ -753,9 +753,9 @@ It will return an undefined state. But, the current state of an app should be al
       at Object.it (test/createStore.spec.js:147:30)
 ```
 
-To make our test case pass. First we will make dispatch function call the `currentReducer` function and assign the return value to `currentState`. The `currentReducer` is a pure function that returns the new state of the store. The new state it returns will be stored as the new/current state.
+To make our test case pass. First, we will make dispatch function call the `currentReducer` function and assign the return value to `currentState`. The `currentReducer` is a pure function that returns the new state of the store. The new state it returns will be stored as the new/current state.
 
-When we create a store without an initial state, we need to dispatch an `INIT`ial action so that every reducer will return their initial state. With these we won't have an undefined `currentState`.
+When we create a store without an initial state, we need to dispatch an `INIT`ial action so that every reducer will return their initial state. With these, we won't have an undefined `currentState`.
 
 To make this work we have to touch our dispatch function. When an action is dispatched we call the reducer, passing in the action and the current state to get the new state. To implement it, we add this to our dispatch function:
 
@@ -799,18 +799,18 @@ export function createStore() {
     }
 }
 ```
-With these we get the current state whenever a store is created. Now, our test case passes.
+With these, we get the current state whenever a store is created. Now, our test case passes.
 
-With this we've now implemented the createStore function in full. Everything that Redux's createStore do, our store now
+With this, we've now implemented the createStore function in full. Everything that Redux's createStore do, our store now
 do too.
 
 ## combineReducers
 
-We now have a full implementation of createStore, which forms the core of Redux state management system. We'll now turn our attention to `combineReducers` - combineReducers as the name implies merges all reducer functions into a single reducer function.
+We now have a full implementation of createStore, which forms the core of Redux state management system. We'll now turn our attention to `combineReducers` - combineReducers, as the name implies, merges all reducer functions into a single reducer function.
 
-So far we've seen how we can use Redux to manage our app state. We have been using only one reducer function, which has been very easy to manage. But when our app grows complex, we have different data structures to manage. To keep the data updated, each data structure has to been managed by different functions.
+So far we've seen how we can use Redux to manage our app state. We have been using only one reducer function, which has been very easy to manage. But when our app grows complex, we have different data structures to manage. To keep the data updated, each data structure has to be managed by different functions.
 
-To illustrate further, let's say we are to build a fruit-tracker app, that will keep inventory of friuts in our store. Let's narrow it down to two friuts, ie we only keep track of only two friuts in tha app (orange and mango). Here, we have two states to manage and keep tarck of. With these states, comes reducer functions for each state.
+To illustrate further, let's say we are to build a fruit-tracker app, that will keep an inventory of fruits in our store. Let's narrow it down to two fruits, ie we only keep track of only two fruits in the app (orange and mango). Here, we have two states to manage and keep track of. With these states, comes reducer functions for each state.
 
 ```js
 // reducer for `orange` state.
@@ -846,7 +846,7 @@ You see dividing states and their reducers makes it simple to manage and keep tr
 
 Now, let's begin creating our custom combineReducers function. We need combineReducers to return another function which we can pass the app state.
 
-But, first the combineReducers take an object composed of reducer functions. These functions will be merged into a single function. 
+But, first, the combineReducers take an object composed of reducer functions. These functions will be merged into a single function. 
 
 Next, we make combineReducers return a function. To make sure combineReducers returns a function, add this test case:
 
@@ -874,9 +874,9 @@ Our combineReducers is returning a new reducer function that takes two arguments
 We will loop through the array and call each reducer by its key.
 We will gather the results into a single state object, whose keys corresponds to the keys of the passed reducer functions.
 
-Also, immutability is the watch word in Redux, to prevent mutation, we will check for state mutations using shallow checking. To achieve this, we will store the previous state of a reducer function and the current state which is derived from calling the reducer function. Then, we check for referential equality using the `===` operator. If the previous state doesn't point by reference to the next state, we know state has changed.
+Also, immutability is the watchword in Redux, to prevent mutation, we will check for state mutations using shallow checking. To achieve this, we will store the previous state of a reducer function and the current state which is derived from calling the reducer function. Then, we check for referential equality using the `===` operator. If the previous state doesn't point by reference to the next state, we know state has changed.
 
-First, let's begin by adding a test case that asserts that combineReducers returns a reducer that maps the state keys to the given reducer.
+First, let's begin by adding a test case that asserts that combineReducers return a reducer that maps the state keys to the given reducer.
 
 ```js
 // test/combineReducers.js
@@ -894,7 +894,7 @@ To make this test pass, we will loop through the keys of `reducer` and call each
 
 ```js
 // src/combineReducers
-/* This function takes an reducers as arg, then combine 
+/* This function takes reducers as arg, then combine 
 the reducers into a single reducer function */
 export function combineReducers(reducers) {
 
@@ -925,18 +925,18 @@ Immutability is very essential in data management because it makes data handling
 
 Using immutable states, we can write code that can tell if the state has changed so that we won't recursively compare the state to check if something has changed. React-Redux's `connect` uses immutability to see if the `Wrapped` components need to re-render.
 
-To implement immutabilty, we will compare the previous state of the reducer and the current state gotten from the call on the reducer using the `===` operator to check whether the state has changed.
+To implement immutability, we will compare the previous state of the reducer and the current state got from the call on the reducer using the `===` operator to check whether the state has changed.
 
-We already have a `for-loop` iteration. So at each stage of iteration we perform a shallow check on the previous state and the current state. If the check fails we set a `hasChanged` flag to true.
+We already have a `for-loop` iteration. So at each stage of iteration, we perform a shallow check on the previous state and the current state. If the check fails we set a `hasChanged` flag to true.
 
-After, the iteration is completed we will check the `hasChanged` flag. We will return the newly constructed if it is `true` or return the previous state if `false`.
+After the iteration is completed we will check the `hasChanged` flag. We will return the newly constructed if it is `true` or return the previous state if `false`.
 
-We have a function that calls it child reducers and returns a state object. Let's write a test case that checks the combineReducer returns the same state when its reducers doesn't change the reference. 
+We have a function that calls it child reducers and returns a state object. Let's write a test case that checks the combineReducer returns the same state when its reducers don't change the reference. 
 
 ```js
 // test/combineReducers.spec.js
 describe("combineReducers", () => {
-    it("must return the same state if reducers doesn't change the state reference", () => {
+    it("must return the same state if reducers don't change the state reference", () => {
         const reducer = combineReducers({ orange: (state = [], action) => action.type === 'ADD_ORANGE' ? [...state, action.value] : state })
         const initialState = reducer({}, { type: 'INIT' })
         expect(reducer(initialState, { type: 'NULL' })).toBe(initialState)
@@ -973,13 +973,13 @@ describe("combineReducers", () => {
 })
 ```
 
-We setup our reducers with a `fruits` reducer. We've provided our fruits state object with an empty array. We used a `if-else` condition statement to account for when an action type is defined or not. If our reducer recieves an action other than adding an orange, it will return the original state object.
+We set up our reducers with a `fruits` reducer. We've provided our fruits state object with an empty array. We used an `if-else` condition statement to account for when an action type is defined or not. If our reducer receives an action other than adding an orange, it will return the original state object.
 
-This is the same as above, we setup our initialState with a `INIT` action. It will return the state passed which we assign to `initialsState`, we is our initial state, next we call the reducer with action `ADD_ORANGE` which will return a new state. This new state should not be referential equal to the `initialState`.
+This is the same as above, we set up our initialState with an `INIT` action. It will return the state passed which we assign to `initialsState`, which is our initial state, next, we call the reducer with action `ADD_ORANGE` which will return a new state. This new state should not be referential equal to the `initialState`.
 
-To make this test pass, we are going to check the reference of our previos state and current state. We alreday have an iteration, that calls each reducers from its key, then builds a new state object and return it.
+To make this test pass, we are going to check the reference of our previous state and current state. We already have an iteration, that calls each reducers from its key, then builds a new state object and return it.
 
-To implememt referentiality check, we store the previous state which we get foem the passed in state and the current state which we get from calling the reducer fucntion, we shallow check them using `===`, if it turns out false we set a `hasChanged` flag to true.
+To implement referentiality check, we store the previous state which we got from the passed in state and the current state which we got from calling the reducer function, we shallow check them using `===`, if it turns out false we set a `hasChanged` flag to true.
 
 To start off, we define the `hasChanged` flag inside the `combination` function and set it to false:
 
@@ -1007,8 +1007,8 @@ Next, we get the previous state from `state` and store it in `prevState` variabl
 ?          const prevState = state[reducerKeys[index]]
 ...
 ```
-We got the previous state by getting it from the `state` using the current key in the iteration. 
-Next, we get the current state. We already have a variable `state` which holds the state object gotten from the `redcuer` call. This variable will now be rewritten to `newState`, also the `reducer` will be passed the `prevState` variable. So we edit the `state` arg to `prevState`:
+We got the previous state from the `state` object using the current key in the iteration. 
+Next, we get the current state. We already have a variable `state` which holds the state object gotten from the `reducer` call. This variable will now be rewritten to `newState`, also the `reducer` will be passed to the `prevState` variable. So we edit the `state` arg to `prevState`:
 
 ```js
 // src/combineReducers.js
@@ -1073,7 +1073,7 @@ Now, we have the previous state and current state, we perform the shallow check 
 ```
 We jsut used ternary operator to check if the check passes. If true `hasChanged` is set to true, if not nothing happens.
 
-At the end of the iteration, we initially just returne dthe newly constructed state, but now, we are gong to check if the `hasChanged` flag is true to determine which state to send back. If the flag is true we send the newly constructed state `nextState`, if false we send the original state:
+At the end of the iteration, we initially just returned the newly constructed state, but now, we are going to check if the `hasChanged` flag is true to determine which state to send back. If the flag is true we send the newly constructed state `nextState`, if false we send the original state:
 
 ```js
 // src/combineReducers.js
@@ -1099,7 +1099,7 @@ At the end of the iteration, we initially just returne dthe newly constructed st
     }
 ...
 ```
-Again, we used a ternary operator to determine which state to return. If all the reducer functions return the same state sent to it, then the current state object `state` is returned, not the newly constructed state `newState`. With this, our test cases passes.
+Again, we used a ternary operator to determine which state to return. If all the reducer functions return the same state sent to it, then the current state object `state` is returned, not the newly constructed state `newState`. With this, our test cases pass.
 
 # Bundling our Redux library with Rollup
 
@@ -1135,9 +1135,9 @@ const config = {
 export default config
 ```
 
-Let's go through the following configuartions to see what they does:
+Let's go through the following configurations to see what they do:
 
-* __input__: The entrypoint of `Rollup`. This property should contain the path of the file that exports all the function you want to expose to the user.
+* __input__: The entry point of `Rollup`. This property should contain the path of the file that exports all the function you want to expose to the user.
 * __output__: This object holds information on how `Rollup` should handle the output file.
 * __output.format__: This specifies the bundling format to use (`amd`, `iife`, `umd`, `cjs`, `es` or `system`).
 * __output.name__: The name by which other scripts can access our module. 
@@ -1156,7 +1156,7 @@ export * from './createStore'
 export * from './combineReducers'
 ```
 
-Let's add an NPM script `build` in our package.json so that we can convientiely bunlde our files from the terminal:
+Let's add an NPM script `build` in our package.json so that we can conveniently bundle our files from the terminal:
 
 ```json
 // package.json
@@ -1168,7 +1168,7 @@ Let's add an NPM script `build` in our package.json so that we can convientiely 
 ...
 ```
 
-Rollup can actually be used in cmd and in JS (API). Here, we using the cmd option. Also we pass a couple of flags along with the rollup command. `-o` is the output folder where the final bundle will be kept, here we specified `dist/`. If the folder doesn't exist, `Rollup` will create it and store the bundled file in it as `redux.js`.
+Rollup can actually be used in cmd and in JS (API). Here, we using the cmd option. Also, we pass a couple of flags along with the rollup command. `-o` is the output folder where the final bundle will be kept, here we specified `dist/`. If the folder doesn't exist, `Rollup` will create it and store the bundled file in it as `redux.js`.
 
 Now, let's invoke the `build` script to produce our bundle:
 
@@ -1176,7 +1176,7 @@ Now, let's invoke the `build` script to produce our bundle:
 npm run build
 ```
 
-Rollup bundles all the files in `src/` and stores it in `dist/`. We shpuld have a dist folder in our project directory with `react.js in it.
+Rollup bundles all the files in `src/` and stores it in `dist/`. We should have a dist folder in our project directory with `react.js in it.
 
 ```
 ?  dist/
@@ -1215,11 +1215,11 @@ To begin create folder `examples/` in your root directory. Add `examples/fruits.
 
 We created our example app in our project folder so that we can easily reference the path of our library. You can create yours anywhere in your system but you have to copy our library from the `dist` folder so you can reference it.
 
-To deomnstate the use of both createStore and combineReducers fucmtions, we are going to write a simple Fruits app. 
+To demonstrate the use of both createStore and combineReducers functions, we are going to write a simple Fruits app. 
 
 We can add a new fruit (orange or mango or any other fruits), remove a fruit from the store or select a fruit.
 
-We will have two states fruits and selectedFruits. fruits state will hold all fruits added to the store and selectedFruit will hold the fruit selected to be diplayed.
+We will have two states fruits and selectedFruits. fruits state will hold all fruits added to the store and selectedFruit will hold the fruit selected to be displayed.
 
 Let's begin by adding the following code to `examples/fruits.html`:
 
@@ -1256,7 +1256,7 @@ Let's begin by adding the following code to `examples/fruits.html`:
 </html>
 ```
 
-Looking at the above code, we have two container `div`s fruitsContainer and selectedFruitContainer. The former holds code for adding and removal of fruits on our store. The input tag holds the fruit name we type in and the button event `addTodo()` adds the name fo the fruit into our store. The `ul` element will hold the list of the fruits in our store.
+Looking at the above code, we have two containers `div`s fruitsContainer and selectedFruitContainer. The former holds the code for adding and removal of fruits from our store. The input tag holds the fruit name we type in and the button event `addTodo()` adds the name fo the fruit into our store. The `ul` element will hold the list of the fruits in our store.
 
 The `b` element in `selectedFruitContainer` will display the fruit selected. Let's implement the store, first we add a `script` tag after `<div id="selectedFruitContainer">...</div>` , between `<script>` and `</scriipt>` is where we add our Js code. We define our reducers function selectedFruit and fruits:
 
@@ -1290,7 +1290,7 @@ The `b` element in `selectedFruitContainer` will display the fruit selected. Let
 </html>
 ```
 
-Here, we have our two reducers, both takes in a state and action as parameters. selectedFruit has one action `SELECT_FRUIT` that adds the selected fruit to the state, fruits function has two action cases `ADD_FRUIT` and `REMOVE_FRUIT`. `ADD_FRUIT` adds a fruit to the store while `REMOVE_FRUIT` removes a fruit by its id from the store.
+Here, we have our two reducers, both take in a state and action as parameters. selectedFruit has one action `SELECT_FRUIT` that adds the selected fruit to the state, fruits function has two action cases `ADD_FRUIT` and `REMOVE_FRUIT`. `ADD_FRUIT` adds a fruit to the store while `REMOVE_FRUIT` removes a fruit by its id from the store.
 
 We have two reducers, so we will use our custom combinReducers to merge them into a single reducer function:
 
@@ -1301,7 +1301,7 @@ We have two reducers, so we will use our custom combinReducers to merge them int
         })
 ```
 
-You remember the external property we set to `redux` in rollup.config .js file when bundling with Rollup? The external property exposed the value `redux` to be global so that we can reference or call our functions from it. That's how we were able to do `redux.combineReducers()`. OK, remember combineReducers takes in object of functions, thats why we passed our functions fruits and selectedFruit encased in an object. combineReducers merges them into a single function and returns it as `reducers`. So calling reducer with a state and action calls our fruits and selectedFruit with the parameters it got.
+You remember the external property we set to `redux` in rollup.config .js file when bundling with Rollup? The external property exposed the value `redux` to be global so that we can reference or call our functions from it. That's how we were able to do `redux.combineReducers()`. OK, remember combineReducers takes an object of functions, that's why we passed our functions fruits and selectedFruit encased in an object. combineReducers merges them into a single function and returns it as `reducers`. So calling reducer with a state and action calls our fruits and selectedFruit with the parameters it got.
 
 Next, we create our store:
 
@@ -1309,16 +1309,18 @@ Next, we create our store:
         var store = redux.createStore(reducer)
 ```
 
-Here, we reference createStore using the global variable `redux` and call it with our reducer function. This returns our store, this store variable is composed of functions `getState`, `subscribe` and `dispatch`. With these functions we can manage our state.
+Here, we reference createStore using the global variable `redux` and call it with our reducer function. This returns our store, this store variable is composed of functions `getState`, `subscribe` and `dispatch`. With these functions, we can manage our state.
 
-Whenever an event is dispatched, state is changed, to keep up with the state changes we have to subscribe to the store to get updates. With the new updates we can render the data on our UI. We create a function render:
+Whenever an event is dispatched, the state is changed, to keep up with the state changes we have to subscribe to the store to get updates. With the new updates, we can render the data on our UI. We create a function render:
 
 ```html
 function render() {
 
 }
 ```
+
 Here, we write the code that will update and re-render the data on our UI:
+
 
 ```html
         function render() {
@@ -1344,18 +1346,20 @@ Here, we write the code that will update and re-render the data on our UI:
             selectedFruit$.innerHTML = selectedFruit
         }
 ```
+
 Here, we destructure todos and selectedFruit from the store. The render containers `fruitList` and `SelectedFruit` HTMLElement is stored, it will be used later to insert HTML code into them.
 
 Next, we looped through the todos variable and generate HTML string for each todo. In each HTML string, we added buttons with texts `RemoveFruit`, `SelectFruit` this buttons have events that calls funcions `removeFruit()` and `selectFruit()`. `removeFruit()` which is passed the current fruit index removes the fruit from the store by dispatching `REMOVE_FRUIT` action, `selectFruit` also passed in the current fruit, dispatches the `SELECT_FRUIT` action. We use `innerHTML` property to insert the final HTML string into the `fruitList` HTMLElement.
 After this, we also append the `selectedFruit` into the `selecteFruit` HTMLElement.
 
-Now done with the `render` fucntion, we register it into our store as a subscriber, by calling the `store.subscribe` function passing it as an arg:
+Now done with the `render` function, we register it into our store as a subscriber, by calling the `store.subscribe` function passing it as an arg:
 
 ```html
         store.subscribe(render)
 ```
 
 Next we define all events in our buttons:
+
 
 ```html
         function addFruit() {
@@ -1382,6 +1386,7 @@ Next we define all events in our buttons:
 ```
 
 At the end, our entire app code will look like this:
+
 
 ```html
 <!-- examples/fruits.html-->
@@ -1491,13 +1496,14 @@ At the end, our entire app code will look like this:
 
 </html>
 ```
+
 Now we have a fully functional app using our Redux-clone we implemented from scratch as the state management library!!!
 
 # Conclusion
 
 We have come a long way!! From introducing Redux concepts, Jest setup to running a demo app on our custom Redux library.
 
-We learnt a lot during the course of this tutorial:
+We learned a lot during the course of this tutorial:
 
 * Basic concepts of `Redux`.
 * How to use `babel` to transpile `JS` code from `ES7` to `ES5/6`.
@@ -1506,7 +1512,7 @@ We learnt a lot during the course of this tutorial:
 * How `createStore` and `combineReducers` functions work and how to implement your own.
 * How all the code we have written actually supports a Redux app.
 
-Moreover, we now have a very rich and deep knowlegde of how Redux works.
+Moreover, we now have a very rich and deep knowledge of how Redux works.
 
 # Complete `createStore` source code
 
